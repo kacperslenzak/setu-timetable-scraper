@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 from datetime import datetime
-from utils import merge_timetables
+from utils import merge_timetables, get_week_for_param
 
 TIME_RE = re.compile(r"^(?:[01]\d|2[0-3]):[0-5]\d$")
 
@@ -23,7 +23,7 @@ class SETUTimetableScraper:
             "txtProgTitleFilter": "computer science",
             "CboPOS": "KCMSC_B_Y1",
             "CboStudParentGrp": "kcmsc_b1-W_W3/W4",
-            "CboWeeks": "23",
+            "CboWeeks": get_week_for_param(),
             "CboStartTime": "1",
             "CboEndTime": "9",
             "BtnRetrieve": "Generate Timetable"
